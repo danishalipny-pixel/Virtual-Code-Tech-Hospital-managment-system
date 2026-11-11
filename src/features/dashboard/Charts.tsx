@@ -31,6 +31,14 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 
+const tooltipStyle: React.CSSProperties = {
+  backgroundColor: "var(--surface)",
+  color: "var(--foreground)",
+  borderRadius: "12px",
+  border: "1px solid var(--border)",
+  fontSize: "12px",
+};
+
 export function PatientStatisticsChart({ data }: { data: PatientTrendPoint[] }) {
   return (
     <Card>
@@ -72,13 +80,7 @@ export function PatientStatisticsChart({ data }: { data: PatientTrendPoint[] }) 
                 axisLine={false}
                 tickLine={false}
               />
-              <Tooltip
-                contentStyle={{
-                  borderRadius: "12px",
-                  border: "1px solid #cbd5e1",
-                  fontSize: "12px",
-                }}
-              />
+              <Tooltip contentStyle={tooltipStyle} />
               <Legend wrapperStyle={{ fontSize: "12px" }} />
               <Area
                 type="monotone"
@@ -86,6 +88,7 @@ export function PatientStatisticsChart({ data }: { data: PatientTrendPoint[] }) 
                 name="Clinical Visits"
                 stroke="#0284c7"
                 strokeWidth={2.5}
+                animationDuration={400}
                 fillOpacity={1}
                 fill="url(#visitsGradient)"
               />
@@ -95,6 +98,7 @@ export function PatientStatisticsChart({ data }: { data: PatientTrendPoint[] }) 
                 name="New Patients"
                 stroke="#0d9488"
                 strokeWidth={2.5}
+                animationDuration={400}
                 fillOpacity={1}
                 fill="url(#patientsGradient)"
               />
@@ -139,23 +143,21 @@ export function RevenueChart({ data }: { data: RevenueChartPoint[] }) {
               />
               <Tooltip
                 formatter={(value) => formatCurrency(Number(value ?? 0))}
-                contentStyle={{
-                  borderRadius: "12px",
-                  border: "1px solid #cbd5e1",
-                  fontSize: "12px",
-                }}
+                contentStyle={tooltipStyle}
               />
               <Legend wrapperStyle={{ fontSize: "12px" }} />
               <Bar
                 dataKey="paid"
                 name="Paid Revenue"
                 fill="#0284c7"
+                animationDuration={400}
                 radius={[6, 6, 0, 0]}
               />
               <Bar
                 dataKey="unpaid"
                 name="Unpaid Invoices"
                 fill="#f59e0b"
+                animationDuration={400}
                 radius={[6, 6, 0, 0]}
               />
             </BarChart>
@@ -199,18 +201,13 @@ export function AppointmentStatisticsChart({
                   innerRadius={52}
                   outerRadius={80}
                   paddingAngle={4}
+                  animationDuration={400}
                 >
                   {statusData.map((entry) => (
                     <Cell key={entry.name} fill={entry.fill} />
                   ))}
                 </Pie>
-                <Tooltip
-                  contentStyle={{
-                    borderRadius: "12px",
-                    border: "1px solid #cbd5e1",
-                    fontSize: "12px",
-                  }}
-                />
+                <Tooltip contentStyle={tooltipStyle} />
               </PieChart>
             </ResponsiveContainer>
           </div>

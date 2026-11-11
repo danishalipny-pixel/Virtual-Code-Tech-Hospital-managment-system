@@ -32,11 +32,16 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
           className="block text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300"
         >
           {label}
-          {required && <span className="ml-0.5 text-rose-500">*</span>}
+          {required && (
+            <span aria-hidden="true" className="ml-0.5 text-rose-500">
+              *
+            </span>
+          )}
         </label>
         <input
           ref={ref}
           id={inputId}
+          required={required}
           aria-invalid={Boolean(error)}
           aria-describedby={
             error ? errorId : hint ? hintId : undefined
@@ -95,11 +100,16 @@ export const SelectInput = React.forwardRef<HTMLSelectElement, SelectInputProps>
           className="block text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300"
         >
           {label}
-          {required && <span className="ml-0.5 text-rose-500">*</span>}
+          {required && (
+            <span aria-hidden="true" className="ml-0.5 text-rose-500">
+              *
+            </span>
+          )}
         </label>
         <select
           ref={ref}
           id={selectId}
+          required={required}
           aria-invalid={Boolean(error)}
           aria-describedby={error ? errorId : undefined}
           className={cn(
@@ -152,12 +162,17 @@ export const TextareaInput = React.forwardRef<
         className="block text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300"
       >
         {label}
-        {required && <span className="ml-0.5 text-rose-500">*</span>}
+        {required && (
+          <span aria-hidden="true" className="ml-0.5 text-rose-500">
+            *
+          </span>
+        )}
       </label>
       <textarea
         ref={ref}
         id={textareaId}
         rows={rows}
+        required={required}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? errorId : undefined}
         className={cn(
