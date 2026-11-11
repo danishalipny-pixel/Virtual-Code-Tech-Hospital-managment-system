@@ -181,7 +181,7 @@ export const useHospitalStore = create<HospitalState>()(
       },
 
       logout: () => {
-        set({ session: null });
+        set({ session: null, toasts: [] });
       },
 
       setTheme: (theme) => {
