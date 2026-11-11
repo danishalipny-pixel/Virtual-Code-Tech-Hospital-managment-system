@@ -1,0 +1,134 @@
+[
+  {
+    "id": "INV-4001",
+    "patientId": "PAT-1001",
+    "patientName": "Amelia Thornton",
+    "serviceDescription": "Cardiology Consultation & 12-Lead ECG",
+    "quantity": 1,
+    "unitPrice": 340,
+    "totalAmount": 340,
+    "invoiceDate": "2026-06-20",
+    "status": "Paid"
+  },
+  {
+    "id": "INV-4002",
+    "patientId": "PAT-1002",
+    "patientName": "Liam O'Connor",
+    "serviceDescription": "Stress Echocardiogram & Cardiac Care",
+    "quantity": 1,
+    "unitPrice": 1250,
+    "totalAmount": 1250,
+    "invoiceDate": "2026-07-12",
+    "status": "Paid"
+  },
+  {
+    "id": "INV-4003",
+    "patientId": "PAT-1003",
+    "patientName": "Priya Nair",
+    "serviceDescription": "Pulmonary Spirometry Panel",
+    "quantity": 2,
+    "unitPrice": 180,
+    "totalAmount": 360,
+    "invoiceDate": "2026-07-24",
+    "status": "Paid"
+  },
+  {
+    "id": "INV-4004",
+    "patientId": "PAT-1004",
+    "patientName": "Mateo Alvarez",
+    "serviceDescription": "Orthopedic Physiotherapy Sessions",
+    "quantity": 4,
+    "unitPrice": 145,
+    "totalAmount": 580,
+    "invoiceDate": "2026-08-14",
+    "status": "Paid"
+  },
+  {
+    "id": "INV-4005",
+    "patientId": "PAT-1005",
+    "patientName": "Hannah Lindqvist",
+    "serviceDescription": "Inpatient Ward Stay & Metabolic Lab Suite",
+    "quantity": 3,
+    "unitPrice": 620,
+    "totalAmount": 1860,
+    "invoiceDate": "2026-08-29",
+    "status": "Paid"
+  },
+  {
+    "id": "INV-4006",
+    "patientId": "PAT-1006",
+    "patientName": "Noah Takahashi",
+    "serviceDescription": "Pediatric Wellness & Immunization Package",
+    "quantity": 1,
+    "unitPrice": 260,
+    "totalAmount": 260,
+    "invoiceDate": "2026-09-10",
+    "status": "Paid"
+  },
+  {
+    "id": "INV-4007",
+    "patientId": "PAT-1007",
+    "patientName": "Zara Al-Mansoor",
+    "serviceDescription": "Neurology Consult & Cranial MRI Diagnostic",
+    "quantity": 1,
+    "unitPrice": 1480,
+    "totalAmount": 1480,
+    "invoiceDate": "2026-09-21",
+    "status": "Paid"
+  },
+  {
+    "id": "INV-4008",
+    "patientId": "PAT-1009",
+    "patientName": "Chloe Beaumont",
+    "serviceDescription": "Dermatology Patch Testing & Biopsy",
+    "quantity": 1,
+    "unitPrice": 420,
+    "totalAmount": 420,
+    "invoiceDate": "2026-10-08",
+    "status": "Paid"
+  },
+  {
+    "id": "INV-4009",
+    "patientId": "PAT-1008",
+    "patientName": "Ethan Kowalski",
+    "serviceDescription": "Orthopedic Surgical Stabilization & Ward Care",
+    "quantity": 2,
+    "unitPrice": 1150,
+    "totalAmount": 2300,
+    "invoiceDate": "2026-10-19",
+    "status": "Unpaid"
+  },
+  {
+    "id": "INV-4010",
+    "patientId": "PAT-1011",
+    "patientName": "Isabella Rossi",
+    "serviceDescription": "Obstetric Ultrasound & Maternity Monitoring",
+    "quantity": 2,
+    "unitPrice": 490,
+    "totalAmount": 980,
+    "invoiceDate": "2026-11-05",
+    "status": "Paid"
+  },
+  {
+    "id": "INV-4011",
+    "patientId": "PAT-1010",
+    "patientName": "Samuel Mensah",
+    "serviceDescription": "ICU Cardiac Telemetry Monitoring (Days)",
+    "quantity": 3,
+    "unitPrice": 890,
+    "totalAmount": 2670,
+    "invoiceDate": "2026-11-08",
+    "status": "Unpaid"
+  },
+  {
+    "id": "INV-4012",
+    "patientId": "PAT-1013",
+    "patientName": "Mei-Ling Zhou",
+    "serviceDescription": "Comprehensive Executive Health Screening",
+    "quantity": 1,
+    "unitPrice": 540,
+    "totalAmount": 540,
+    "invoiceDate": "2026-11-11",
+    "status": "Paid"
+  }
+]

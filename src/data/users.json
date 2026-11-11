@@ -1,0 +1,30 @@
+[
+  {
+    "id": "USR-01",
+    "name": "Sarah Vance",
+    "email": "admin@medaxis.org",
+    "password": "Admin@2026",
+    "role": "admin",
+    "title": "Hospital Administrator",
+    "department": "Executive Operations"
+  },
+  {
+    "id": "USR-02",
+    "name": "Dr. Elena Rostova",
+    "email": "doctor@medaxis.org",
+    "password": "Doctor@2026",
+    "role": "doctor",
+    "title": "Chief of Cardiology",
+    "department": "Cardiology",
+    "doctorId": "DOC-201"
+  },
+  {
+    "id": "USR-03",
+    "name": "Marcus Chen",
+    "email": "reception@medaxis.org",
+    "password": "Reception@2026",
+    "role": "receptionist",
+    "title": "Senior Front-Desk Coordinator",
+    "department": "Patient Admissions"
+  }
+]

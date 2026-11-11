@@ -1,8 +1,29 @@
 @import "tailwindcss";
+@import "../styles/print.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root,
+[data-theme="light"] {
+  --background: #f4f8fc;
+  --foreground: #0f172a;
+  --surface: #ffffff;
+  --surface-muted: #f0f6fc;
+  --border: #dce7f3;
+  --primary: #0284c7;
+  --primary-hover: #0369a1;
+  --muted-text: #475569;
+}
+
+[data-theme="dark"] {
+  --background: #09111e;
+  --foreground: #f1f5f9;
+  --surface: #111c2e;
+  --surface-muted: #16243a;
+  --border: #1e314d;
+  --primary: #38bdf8;
+  --primary-hover: #0ea5e9;
+  --muted-text: #94a3b8;
 }
 
 @theme inline {
@@ -12,15 +33,33 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* Accessible visible keyboard focus ring */
+:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 2px;
+}
+
+.sr-only-focusable:focus {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  width: auto;
+  height: auto;
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  background: #0284c7;
+  color: #ffffff;
+  font-weight: 600;
+  clip: auto;
 }

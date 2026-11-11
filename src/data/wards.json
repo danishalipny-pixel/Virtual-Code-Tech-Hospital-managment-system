@@ -1,0 +1,212 @@
+[
+  {
+    "id": "WRD-ICU",
+    "name": "Intensive Care Unit (ICU)",
+    "department": "Emergency & ICU",
+    "floor": "Floor 2 · North Wing",
+    "beds": [
+      {
+        "id": "BED-ICU-01",
+        "bedNumber": "ICU-101",
+        "wardId": "WRD-ICU",
+        "status": "Occupied",
+        "patientId": "PAT-1010",
+        "patientName": "Samuel Mensah",
+        "admittedAt": "2026-11-07"
+      },
+      {
+        "id": "BED-ICU-02",
+        "bedNumber": "ICU-102",
+        "wardId": "WRD-ICU",
+        "status": "Available"
+      },
+      {
+        "id": "BED-ICU-03",
+        "bedNumber": "ICU-103",
+        "wardId": "WRD-ICU",
+        "status": "Available"
+      },
+      {
+        "id": "BED-ICU-04",
+        "bedNumber": "ICU-104",
+        "wardId": "WRD-ICU",
+        "status": "Maintenance"
+      }
+    ]
+  },
+  {
+    "id": "WRD-CAR",
+    "name": "Cardiology Telemetry Ward",
+    "department": "Cardiology",
+    "floor": "Floor 3 · East Wing",
+    "beds": [
+      {
+        "id": "BED-CAR-01",
+        "bedNumber": "CAR-201",
+        "wardId": "WRD-CAR",
+        "status": "Occupied",
+        "patientId": "PAT-1002",
+        "patientName": "Liam O'Connor",
+        "admittedAt": "2026-11-03"
+      },
+      {
+        "id": "BED-CAR-02",
+        "bedNumber": "CAR-202",
+        "wardId": "WRD-CAR",
+        "status": "Available"
+      },
+      {
+        "id": "BED-CAR-03",
+        "bedNumber": "CAR-203",
+        "wardId": "WRD-CAR",
+        "status": "Available"
+      },
+      {
+        "id": "BED-CAR-04",
+        "bedNumber": "CAR-204",
+        "wardId": "WRD-CAR",
+        "status": "Available"
+      }
+    ]
+  },
+  {
+    "id": "WRD-GEN",
+    "name": "General Medicine Ward",
+    "department": "General Medicine",
+    "floor": "Floor 4 · West Wing",
+    "beds": [
+      {
+        "id": "BED-GEN-01",
+        "bedNumber": "GEN-301",
+        "wardId": "WRD-GEN",
+        "status": "Occupied",
+        "patientId": "PAT-1005",
+        "patientName": "Hannah Lindqvist",
+        "admittedAt": "2026-11-04"
+      },
+      {
+        "id": "BED-GEN-02",
+        "bedNumber": "GEN-302",
+        "wardId": "WRD-GEN",
+        "status": "Available"
+      },
+      {
+        "id": "BED-GEN-03",
+        "bedNumber": "GEN-303",
+        "wardId": "WRD-GEN",
+        "status": "Available"
+      },
+      {
+        "id": "BED-GEN-04",
+        "bedNumber": "GEN-304",
+        "wardId": "WRD-GEN",
+        "status": "Available"
+      }
+    ]
+  },
+  {
+    "id": "WRD-ORT",
+    "name": "Orthopedics & Surgical Recovery",
+    "department": "Orthopedics",
+    "floor": "Floor 3 · South Wing",
+    "beds": [
+      {
+        "id": "BED-ORT-01",
+        "bedNumber": "ORT-401",
+        "wardId": "WRD-ORT",
+        "status": "Occupied",
+        "patientId": "PAT-1008",
+        "patientName": "Ethan Kowalski",
+        "admittedAt": "2026-10-19"
+      },
+      {
+        "id": "BED-ORT-02",
+        "bedNumber": "ORT-402",
+        "wardId": "WRD-ORT",
+        "status": "Available"
+      },
+      {
+        "id": "BED-ORT-03",
+        "bedNumber": "ORT-403",
+        "wardId": "WRD-ORT",
+        "status": "Maintenance"
+      },
+      {
+        "id": "BED-ORT-04",
+        "bedNumber": "ORT-404",
+        "wardId": "WRD-ORT",
+        "status": "Available"
+      }
+    ]
+  },
+  {
+    "id": "WRD-PED",
+    "name": "Pediatrics Observation Ward",
+    "department": "Pediatrics",
+    "floor": "Floor 5 · East Wing",
+    "beds": [
+      {
+        "id": "BED-PED-01",
+        "bedNumber": "PED-501",
+        "wardId": "WRD-PED",
+        "status": "Occupied",
+        "patientId": "PAT-1014",
+        "patientName": "Daniela Silva",
+        "admittedAt": "2026-11-09"
+      },
+      {
+        "id": "BED-PED-02",
+        "bedNumber": "PED-502",
+        "wardId": "WRD-PED",
+        "status": "Available"
+      },
+      {
+        "id": "BED-PED-03",
+        "bedNumber": "PED-503",
+        "wardId": "WRD-PED",
+        "status": "Available"
+      },
+      {
+        "id": "BED-PED-04",
+        "bedNumber": "PED-504",
+        "wardId": "WRD-PED",
+        "status": "Available"
+      }
+    ]
+  },
+  {
+    "id": "WRD-MAT",
+    "name": "Maternity & Prenatal Suite",
+    "department": "Maternity",
+    "floor": "Floor 6 · North Wing",
+    "beds": [
+      {
+        "id": "BED-MAT-01",
+        "bedNumber": "MAT-601",
+        "wardId": "WRD-MAT",
+        "status": "Occupied",
+        "patientId": "PAT-1011",
+        "patientName": "Isabella Rossi",
+        "admittedAt": "2026-11-05"
+      },
+      {
+        "id": "BED-MAT-02",
+        "bedNumber": "MAT-602",
+        "wardId": "WRD-MAT",
+        "status": "Available"
+      },
+      {
+        "id": "BED-MAT-03",
+        "bedNumber": "MAT-603",
+        "wardId": "WRD-MAT",
+        "status": "Available"
+      },
+      {
+        "id": "BED-MAT-04",
+        "bedNumber": "MAT-604",
+        "wardId": "WRD-MAT",
+        "status": "Available"
+      }
+    ]
+  }
+]
