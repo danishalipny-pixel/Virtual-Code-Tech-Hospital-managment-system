@@ -1,258 +1,269 @@
-# MedAxis HMS — Hospital Management System
+# Virtual Code Tech — Hospital Management System (MedAxis HMS)
 
-![Next.js](https://img.shields.io/badge/Next.js-16.4.6-000000?style=flat-square&logo=nextdotjs)
-![React](https://img.shields.io/badge/React-19.3-087EA4?style=flat-square&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=flat-square&logo=tailwindcss)
-![Vitest](https://img.shields.io/badge/Vitest-15_Passing-6E9F18?style=flat-square&logo=vitest)
-
-A complete, responsive, international-grade **Hospital Management System (HMS)** front-end application built with **Next.js (App Router)**, **React**, **TypeScript**, **Tailwind CSS v4**, **Zustand**, **React Hook Form + Zod**, **Recharts**, and **Lucide React**.
-
-> **Disclaimer:** All patient records, physician profiles, clinical schedules, billing statements, and ward occupancy entries are **100% fictional demonstration data** persisted locally in the browser (`localStorage`). No backend, external database, or real patient data is used.
+A modern, responsive, clinical frontend application designed for hospital administration, staff coordination, and patient care workflows. Built with Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Zustand with browser persistence, and Recharts.
 
 ---
 
-## Table of Contents
+## 1. Project Title & Overview
 
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Role-Based Access Control (RBAC)](#role-based-access-control-rbac)
-- [Technology Stack](#technology-stack)
-- [Folder Structure](#folder-structure)
-- [Demo Login Credentials](#demo-login-credentials)
-- [Screenshots](#screenshots)
-- [Installation & Local Development](#installation--local-development)
-- [Running Tests, Linting & Production Build](#running-tests-linting--production-build)
-- [Vercel Deployment Instructions](#vercel-deployment-instructions)
-- [3–5 Minute Demo Walkthrough Guide](#35-minute-demo-walkthrough-guide)
-- [Future Improvements](#future-improvements)
+- **Project:** Virtual Code Tech — Hospital Management System
+- **Codename:** MedAxis HMS
+- **Target Repository:** `danishalipny-pixel/Virtual-Code-Tech-Hospital-managment-system`
+- **Architecture Model:** Client-first Single Page Application with zero backend dependencies, utilizing Zustand in-memory state backed by local JSON fixtures and browser `localStorage`.
+- **Clinical Data Notice:** All patient names, physician profiles, medical histories, invoices, and bed allocations are fictional simulation data.
 
 ---
 
-## Project Overview
+## 2. Executive Summary
 
-**MedAxis HMS** unifies core hospital workflows into a clean white and light-blue medical software interface (with full Dark Mode support). Every metric, chart, table, and badge updates live from centralized Zustand client state backed by local JSON seed files and `localStorage` browser persistence.
+MedAxis HMS provides hospital administrators, physicians, and receptionists with an integrated workspace for hospital operations:
 
----
-
-## Features
-
-### Core Modules
-1. **Mock Authentication & Role-Based Access (`/login`)**
-   - Validated login form (`React Hook Form` + `Zod`) with password visibility toggle and error handling.
-   - One-click **Fill** and **Quick Sign In** demo credential cards for **Admin**, **Doctor**, and **Receptionist**.
-   - Role-specific post-login redirects, route-level protection, `localStorage` session persistence, and one-click Sign Out.
-2. **Executive & Clinical Dashboard (`/dashboard`)**
-   - Live KPI cards calculated directly from application state: **Total Patients**, **Total Doctors**, **Appointments Today**, and **Total Revenue** (with Paid vs. Unpaid breakdown).
-   - Interactive **Recharts** visualizations: **Patient Statistics** (Area Chart), **Revenue Analytics** (Bar Chart), and **Appointment Statistics** (Donut Status Breakdown + Top Departments).
-   - **Live Ward Capacity** meter, **Recent Appointments**, **Recent Patients**, CSV summary export, and print-ready PDF Executive Report.
-3. **Patient Management (`/patients` & `/patients/[id]`)**
-   - Searchable, multi-filterable (`Gender`, `Blood Group`, `Care Status`), paginated patient table.
-   - Add & Edit patient modals with full Zod validation, Quick View details modal, Delete with confirmation dialog, and CSV export.
-   - Dedicated **Patient Profile** page displaying demographics, blood group, emergency contact, current ward/bed assignment, clinical notes, **Appointment History**, and billing records.
-4. **Doctor Management (`/doctors` & `/doctors/[id]`)**
-   - Grid and Table view switcher for medical specialists with local SVG portraits.
-   - Search by name/ID/specialization, filter by Specialization and Availability (`Available`, `In Consultation`, `On Leave`).
-   - Add, Edit, Delete (Admin-only) physicians with avatar preset selector, inline quick availability switcher, CSV export, and dedicated **Doctor Profile** pages.
-5. **Appointment Management (`/appointments`)**
-   - Book, Edit, Reschedule (dedicated modal), Confirm, Complete, and Cancel (with confirmation dialog) appointments.
-   - Search and filter by Status, Department, and Date (with quick **Today** toggle).
-   - **Interactive Monthly Calendar & Day Agenda** view alongside the paginated List view, plus CSV export.
-6. **Billing & Invoices (`/billing` & `/billing/[id]`)**
-   - Invoice ledger with live billing KPIs (`Total Billed`, `Collected Paid`, `Outstanding Unpaid`).
-   - Create & Edit invoices with **automatic live total calculation** (`Quantity × Unit Price`).
-   - One-click `Paid` / `Unpaid` status toggling, CSV export, and dedicated **Print / Export PDF** hospital invoice statement layout (`@media print`).
-
-### Bonus Features Implemented
-- **Dark Mode** with zero-flash SSR inline initialization and persisted preference.
-- **Appointment Calendar View** with interactive day selection and side Day Agenda panel.
-- **CSV Export** across Dashboard KPIs, Patients, Doctors, Appointments, Invoices, and Ward Beds (RFC-4180 compliant with spreadsheet formula sanitization).
-- **Print / PDF Export** with clean `@media print` stylesheets hiding chrome/sidebars on Dashboard Executive Reports and Billing Invoices.
-- **Ward & Bed Availability Tracker (`/wards`)** across 6 hospital wards (`ICU`, `Cardiology`, `General Medicine`, `Orthopedics`, `Pediatrics`, `Maternity`) supporting patient admission, bed discharge, and maintenance toggling.
-- **Accessibility Enhancements**: semantic landmarks, skip-to-main-content link, `aria-modal` dialogs, `aria-live` toast notifications, accessible labels & error associations, and verified mobile responsiveness with zero horizontal overflow.
-- **Automated Unit & Component Tests** with **Vitest** and **React Testing Library**.
+- **Executive Analytics:** Real-time calculation of admitted patient volumes, physician staffing levels, today's appointments, and financial revenue.
+- **Role-Based Workflows:** Distinct permissions and entry points tailored for Hospital Admins, Attending Doctors, and Front-Desk Receptionists.
+- **Operational Modules:** Patient directories, doctor registries, appointment schedules with calendar views, billing ledgers with invoice generation, and real-time ward capacity tracking.
+- **Visual Design:** Medical clean aesthetic with dual-theme support (Light mode and Dark mode with anti-flash script).
 
 ---
 
-## Role-Based Access Control (RBAC)
+## 3. Key Features
 
-| Role | Post-Login Redirect | Permissions Summary |
-| --- | --- | --- |
-| **Admin** | `/dashboard` | Full access to Dashboard, Patients, Doctors (Add/Edit/Delete), Appointments, Billing (Add/Edit/Delete), Wards, and System Demo Reset. |
-| **Doctor** | `/appointments` | Access to Dashboard, Patients (View/Add/Edit), Doctors (View & update own availability), Appointments (full schedule actions), and Wards. **`/billing` is restricted.** |
-| **Receptionist** | `/patients` | Access to Dashboard, Patients (full CRUD), Doctors (View directory), Appointments (full CRUD), Billing (Create/Edit/Toggle/Print), and Wards (Admit/Discharge). Doctor roster add/delete is Admin-only. |
-
----
-
-## Technology Stack
-
-- **Framework:** Next.js `16.4.6` (App Router, Turbopack, Cache Components)
-- **Library:** React `19.3.0`, TypeScript `5`
-- **Styling:** Tailwind CSS v4 (`@tailwindcss/turbopack`)
-- **State Management:** Zustand `5.1.0` (`persist` middleware to `localStorage`)
-- **Forms & Validation:** React Hook Form `7.92.0`, `@hookform/resolvers`, Zod `4.6.7`
-- **Charts:** Recharts `3.10.1`
-- **Icons:** Lucide React `1.72.0`
-- **Testing:** Vitest `5.1.0`, `@testing-library/react`, `@testing-library/jest-dom`, `jsdom`
+- **Authentication & RBAC:** Simulated credentials with one-click quick login for 3 roles and route-level protection.
+- **Live Metrics Dashboard:** Recharts Area, Bar, and Donut charts tracking patient trends, revenue collection, and department workload.
+- **Patient Management:** Full CRUD operations, filtering by blood group and admission status, medical history, and profile records.
+- **Doctor Directory:** Specialty filters, roster cards, interactive availability toggles, and detail views.
+- **Appointment Scheduler:** Multi-status appointment tracking, rescheduling workflows, and interactive calendar day agenda view.
+- **Billing & Invoices:** Automatic total computation (`Quantity × Unit Price`), payment toggles, and print-ready PDF invoice templates.
+- **Ward & Bed Tracker:** Real-time occupancy monitor across 6 specialized hospital wards (ICU, Cardiology, Pediatrics, etc.) with admit and discharge operations.
+- **CSV Data Export:** RFC-4180 compliant export with spreadsheet formula injection protection.
+- **Automated Vitest Suite:** 15 unit and component tests verifying business calculations, store mutations, schemas, and UI components.
 
 ---
 
-## Folder Structure
+## 4. Technology Stack
 
-```text
+- **Framework:** Next.js 16.4.6 (Turbopack, App Router)
+- **Frontend Library:** React 19.3.0
+- **Language:** TypeScript 5 (Strict Mode)
+- **Styling:** Tailwind CSS v4.3.3
+- **State Management:** Zustand 5.1.0 with `persist` middleware
+- **Form Validation:** React Hook Form 7.92.0 + Zod 4.6.7
+- **Data Visualization:** Recharts 3.10.1
+- **Icons:** Lucide React 1.72.0
+- **Testing Framework:** Vitest 5.1.0, React Testing Library, JSDOM
+
+---
+
+## 5. Architectural Overview
+
+```
+Client Browser
+ ├── Next.js App Router (app/(dashboard)/...)
+ ├── Zustand State Store (src/store/useHospitalStore.ts)
+ │    ├── Seed JSON Datasets (src/data/*.json)
+ │    └── Browser LocalStorage Sync (key: medaxis_hms_store_v1)
+ ├── Presentation Layer (Tailwind CSS v4 + Recharts + Lucide)
+ └── Form Validation Layer (React Hook Form + Zod v4)
+```
+
+Refer to [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for full sequence diagrams and RBAC matrices.
+
+---
+
+## 6. Project Directory Structure
+
+```
 ├── docs/
-│   └── screenshots/                # Verified UI screenshots across modules
+│   ├── ARCHITECTURE.md          # System architecture and data flow
+│   ├── DATABASE.md              # Client-side relational entity model
+│   ├── SETUP_GUIDE.md           # Installation and local development guide
+│   ├── SECURITY.md              # Threat model and sanitization policies
+│   └── screenshots/             # Interface screenshots across all views
 ├── public/
-│   ├── avatars/                    # Local SVG physician portraits (doctor-1..8.svg)
-│   └── medaxis-logo.svg            # Brand emblem
+│   ├── avatars/                 # Local SVG doctor profile illustrations
+│   └── medaxis-logo.svg         # Application brand asset
 ├── src/
 │   ├── app/
-│   │   ├── (dashboard)/            # Protected AppShell layout & feature routes
-│   │   │   ├── appointments/
-│   │   │   ├── billing/[id]/
-│   │   │   ├── billing/
-│   │   │   ├── dashboard/
-│   │   │   ├── doctors/[id]/
-│   │   │   ├── doctors/
-│   │   │   ├── patients/[id]/
-│   │   │   ├── patients/
-│   │   │   ├── wards/
-│   │   │   └── layout.tsx
-│   │   ├── login/
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx
+│   │   ├── (dashboard)/         # Protected application layout & sub-routes
+│   │   │   ├── appointments/    # Appointment calendar and listing
+│   │   │   ├── billing/         # Invoices and financial ledger
+│   │   │   ├── dashboard/       # Executive KPI dashboard & charts
+│   │   │   ├── doctors/         # Doctor registry and profiles
+│   │   │   ├── patients/        # Patient directory and profiles
+│   │   │   └── wards/           # Ward & bed occupancy tracker
+│   │   ├── login/               # Authentication portal
+│   │   ├── globals.css          # Tailwind CSS design system tokens
+│   │   └── layout.tsx           # Root layout with dark mode initializer
 │   ├── components/
-│   │   ├── layout/                 # AppShell, Sidebar, Navbar
-│   │   └── ui/                     # Reusable Button, Card, Badge, Modal, Table, FormFields, Toasts
-│   ├── data/                       # Fictional JSON seed data (users, patients, doctors, appointments, invoices, wards)
-│   ├── features/
-│   │   ├── appointments/
-│   │   ├── auth/
-│   │   ├── billing/
-│   │   ├── dashboard/
-│   │   ├── doctors/
-│   │   ├── patients/
-│   │   └── wards/
-│   ├── hooks/                      # useHydrated, useRoleAccess
-│   ├── lib/                        # types, metrics, csv, date, cn
-│   ├── store/                      # Zustand hospital store + unit tests
-│   ├── styles/                     # Print stylesheet for PDF exports
-│   └── test/                       # Vitest setup
-├── next.config.ts
+│   │   ├── layout/              # AppShell, Navbar, Sidebar
+│   │   └── ui/                  # Button, Badge, Modal, Card, Table, FormFields
+│   ├── data/                    # Seed JSON files (users, patients, doctors, etc.)
+│   ├── features/                # Domain-specific components & schemas
+│   ├── hooks/                   # useRoleAccess, useHydrated
+│   ├── lib/                     # Utilities, CSV export, date helpers, metrics
+│   └── store/                   # Central Zustand hospital store
+├── CONTRIBUTING.md
 ├── package.json
-├── tsconfig.json
 └── vitest.config.mts
 ```
 
 ---
 
-## Demo Login Credentials
+## 7. System Prerequisites
 
-| Role | Email | Password |
-| --- | --- | --- |
-| **Admin** | `admin@medaxis.org` | `Admin@2026` |
-| **Doctor** | `doctor@medaxis.org` | `Doctor@2026` |
-| **Receptionist** | `reception@medaxis.org` | `Reception@2026` |
+- Node.js 20.0 or higher
+- npm 10.0 or higher
+- Modern Chromium, Firefox, or Safari browser
 
 ---
 
-## Screenshots
-
-| Login & Role Selector | Executive Dashboard (Light) |
-| --- | --- |
-| ![Login Page](docs/screenshots/01-login.png) | ![Dashboard Light](docs/screenshots/02-dashboard-light.png) |
-
-| Executive Dashboard (Dark Mode) | Patient Directory |
-| --- | --- |
-| ![Dashboard Dark](docs/screenshots/03-dashboard-dark.png) | ![Patients Directory](docs/screenshots/04-patients.png) |
-
-| Medical Specialists | Appointment Calendar & Agenda |
-| --- | --- |
-| ![Doctors Roster](docs/screenshots/05-doctors.png) | ![Appointment Calendar](docs/screenshots/06-appointments-calendar.png) |
-
-| Printable Hospital Invoice | Ward & Bed Tracker |
-| --- | --- |
-| ![Printable Invoice](docs/screenshots/07-billing-invoice.png) | ![Ward Bed Tracker](docs/screenshots/08-wards-beds.png) |
-
-| Mobile Responsive View (390px) |
-| --- |
-| ![Mobile Dashboard](docs/screenshots/09-mobile-dashboard.png) |
-
----
-
-## Installation & Local Development
-
-### Prerequisites
-- **Node.js** `20+` (verified on `v24.18.0`)
-- **npm** `10+`
-
-### Setup
+## 8. Installation Instructions
 
 ```bash
-# 1. Clone the repository
-git clone <your-github-repository-url>
-cd hospital-management-system
+# Clone the repository
+git clone https://github.com/danishalipny-pixel/Virtual-Code-Tech-Hospital-managment-system.git
+cd Virtual-Code-Tech-Hospital-managment-system
 
-# 2. Install dependencies
+# Install dependencies
 npm install
-
-# 3. Start the development server
-npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+---
+
+## 9. Data Storage & Persistence Configuration
+
+The application requires no SQL or NoSQL database setup. It initializes automatically from seed files in `src/data/` and saves subsequent edits directly to browser `localStorage`. To reset the application to fresh factory data at any point, click the **Reset Demo Data** button located in the top navigation bar.
+
+Refer to [docs/DATABASE.md](docs/DATABASE.md) for entity schemas and relationship diagrams.
 
 ---
 
-## Running Tests, Linting & Production Build
+## 10. Environment Variables
+
+The project functions immediately without required environment variables. A template file `.env.example` is included:
+
+```ini
+PORT=3001
+NEXT_PUBLIC_APP_URL=http://localhost:3001
+NODE_ENV=development
+```
+
+---
+
+## 11. How to Run the Application
+
+### Development Mode
 
 ```bash
-# Run unit and component tests (Vitest)
+# Default (port 3000)
+npm run dev
+
+# Alternative (port 3001 - recommended if port 3000 is occupied)
+npm run dev -- -p 3001
+```
+
+Access the application in your browser at: `http://localhost:3001`
+
+### Production Build & Preview
+
+```bash
+npm run build
+npm run start -- -p 3001
+```
+
+---
+
+## 12. Available Modules
+
+| Module Route | Description | Primary Actions |
+| :--- | :--- | :--- |
+| `/dashboard` | Executive KPI overview and analytics | View metrics, filter charts, export summary CSV |
+| `/patients` | Patient directory | Add, edit, delete, view profile, export CSV |
+| `/doctors` | Physician registry | Add, edit, toggle availability, view profile |
+| `/appointments` | Clinical scheduling | Book, reschedule, cancel, view calendar |
+| `/billing` | Accounts and invoices | Create invoice, toggle payment, print PDF bill |
+| `/wards` | Facility occupancy | Track bed status, admit patient, discharge bed |
+
+---
+
+## 13. Authentication & Demo User Credentials
+
+The login screen (`/login`) includes one-click demo credentials:
+
+| Role | Email | Password | Primary Permissions |
+| :--- | :--- | :--- | :--- |
+| **Hospital Admin** | `admin@medaxis.org` | `Admin@2026` | Complete access to all hospital modules |
+| **Doctor** | `doctor@medaxis.org` | `Doctor@2026` | Clinical views & schedule (`/billing` restricted) |
+| **Receptionist** | `reception@medaxis.org` | `Reception@2026` | Patient intake, appointments, billing, admissions |
+
+---
+
+## 14. Testing Instructions
+
+Run the automated test suite with Vitest:
+
+```bash
+# Run unit & component tests
 npm test
 
-# Type-check TypeScript
-npx tsc --noEmit
+# Run TypeScript typecheck
+npm run typecheck
 
 # Run ESLint
 npm run lint
-
-# Build production bundle
-npm run build
-
-# Start production server locally
-npm run start
 ```
 
 ---
 
-## Vercel Deployment Instructions
+## 15. User Interface Gallery
 
-1. Push the repository (`main` branch) to **GitHub**.
-2. Go to [vercel.com/new](https://vercel.com/new) and import your GitHub repository.
-3. Keep the default **Next.js** framework preset:
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `.next`
-   - **Install Command:** `npm install`
-   - **Environment Variables:** None required (100% client-side mock data & `localStorage`).
-4. Click **Deploy** — Vercel will build and publish a live HTTPS URL automatically.
-
----
-
-## 3–5 Minute Demo Walkthrough Guide
-
-1. **0:00 – 0:45 | Authentication & RBAC:** Open `/login`, demonstrate Zod validation errors on empty submit, then Quick Sign In as **Doctor** (`-> /appointments`) and navigate to `/billing` to show the Role Access Restriction screen. Sign out and sign in as **Admin** (`-> /dashboard`).
-2. **0:45 – 1:30 | Executive Dashboard & Dark Mode:** Highlight the 4 calculated KPIs, Patient Statistics Area Chart, Revenue Analytics Bar Chart, Appointment Statistics Donut, and Live Ward Capacity. Toggle **Dark Mode** in the top navbar.
-3. **1:30 – 2:15 | Patient Records:** Navigate to `/patients`, search/filter by blood group, add a new fictional patient (showing Zod validation), open their **Patient Profile** (`/patients/[id]`), and export CSV.
-4. **2:15 – 3:00 | Doctors & Appointments:** Visit `/doctors` to toggle availability and inspect `/doctors/[id]`. Switch to `/appointments`, toggle between **List** and **Calendar** view, book or reschedule a visit, and confirm it.
-5. **3:00 – 4:00 | Billing, PDF Print & Ward Beds:** Open `/billing`, create an invoice showing live `Quantity × Unit Price` calculation, toggle `Paid` / `Unpaid`, open `/billing/[id]` and preview **Print / Export PDF**. Finish on `/wards` admitting a patient to an available ICU bed and refreshing to prove `localStorage` persistence.
+| View | Screenshot |
+| :--- | :--- |
+| **Authentication Screen** | ![Login Screen](docs/screenshots/01-login.png) |
+| **Executive Dashboard (Light Mode)** | ![Dashboard Light](docs/screenshots/02-dashboard-light.png) |
+| **Executive Dashboard (Dark Mode)** | ![Dashboard Dark](docs/screenshots/03-dashboard-dark.png) |
+| **Patient Management Table** | ![Patients View](docs/screenshots/04-patients.png) |
+| **Doctor Directory** | ![Doctors View](docs/screenshots/05-doctors.png) |
+| **Appointment Calendar View** | ![Appointments View](docs/screenshots/06-appointments-calendar.png) |
+| **Billing Ledger & Invoice Detail** | ![Billing View](docs/screenshots/07-billing-invoice.png) |
+| **Ward & Bed Occupancy Monitor** | ![Wards View](docs/screenshots/08-wards-beds.png) |
+| **Mobile Responsive Layout** | ![Mobile Layout](docs/screenshots/09-mobile-dashboard.png) |
 
 ---
 
-## Future Improvements
+## 16. Security Considerations
 
-- Backend API integration using Next.js Route Handlers or PostgreSQL (Prisma/Drizzle) with real JWT/session authentication.
-- Electronic Health Record (EHR) vital signs charting, lab PDF attachments, and prescription e-dispensing module.
-- Automated appointment conflict detection (preventing overlapping physician time slots) and email/SMS reminders.
-- Multi-currency localization (`i18n`) and granular audit trails for HIPAA-style compliance logging.
-- Playwright end-to-end CI workflow and Lighthouse CI checks on every pull request.
+- **Formula Injection Defense:** CSV exports escape leading `=`, `+`, `-`, and `@` characters.
+- **Input Validation:** All modal and form inputs pass through strict Zod v4 schemas.
+- **Route Authorization:** Gated by `useRoleAccess` to enforce separation of clinical vs. financial actions.
+- **No PHI Storage:** All medical data is fictional and stored solely within the local browser session.
+
+See [docs/SECURITY.md](docs/SECURITY.md) for the complete security specification.
+
+---
+
+## 17. Troubleshooting
+
+- **Port in Use (`EADDRINUSE: 3000`):** Pass `-p 3001` to use port 3001.
+- **Stale Browser State:** Click "Reset Demo Data" in the top navigation bar to reset the Zustand store.
+- **Build Cache Issues:** Delete `.next` and run `npm run build` afresh.
+
+---
+
+## 18. Future Roadmap
+
+- Integration with a live REST/GraphQL backend (FastAPI / Express / Go).
+- WebRTC video consultation links for telemedicine.
+- Multi-currency billing and real payment gateway integration (Stripe).
+- Real-time notification webhooks via WebSockets.
+
+---
+
+## 19. Contributing
+
+Contributions are welcomed. Please review [CONTRIBUTING.md](CONTRIBUTING.md) for branch naming conventions, linting guidelines, and pull request procedures.
+
+---
+
+## 20. License
+
+This project is licensed under the MIT License for educational and portfolio demonstration purposes.

@@ -1,12 +1,24 @@
 {
-  "name": "medaxis-hms",
-  "version": "0.1.0",
+  "name": "virtual-code-tech-hospital-management-system",
+  "version": "1.0.0",
+  "description": "Virtual Code Tech - Production-Grade Hospital Management System (MedAxis HMS) built with Next.js 16, React 19, TypeScript, Tailwind CSS v4, Zustand, and Vitest",
+  "author": "Danish Rashid <danish.ali.pny@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danishalipny-pixel/Virtual-Code-Tech-Hospital-managment-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/danishalipny-pixel/Virtual-Code-Tech-Hospital-managment-system/issues"
+  },
+  "homepage": "https://github.com/danishalipny-pixel/Virtual-Code-Tech-Hospital-managment-system#readme",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest"
   },
